@@ -42,7 +42,7 @@ class Unshred
         slices = column.each_slice(CHUNK_SIZE).to_a
         (0...(img.rows - 1)).each do |p|
           side[:l] << slices[p][0].to_rgb
-          side[:r] << slices[p][31].to_rgb
+          side[:r] << slices[p][CHUNK_SIZE - 1].to_rgb
         end
         side
       end
